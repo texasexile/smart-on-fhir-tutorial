@@ -44,6 +44,7 @@
           var ldl = byCodes('2089-1');
           var suppO2 = byCodes('88658-0');
           var oralTemp = byCodes('8331-1');
+          var bmi = byCodes('39156-5');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -62,6 +63,9 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+          p.suppO2 = getQuantityValueAndUnit(suppO2[0]);
+          p.oralTemp = getQuantityValueAndUnit(oralTemp[0]);
+          p.bmi = getQuantityValueAndUnit(bmi[0]);
 
           ret.resolve(p);
         });
@@ -88,6 +92,7 @@
       hdl: {value: ''},
       suppO2: {value: ''},
       oralTemp: {value: ''},
+      bmi: {value: ''}
     };
   }
 
@@ -133,6 +138,7 @@
     $('#hdl').html(p.hdl);
     $('#suppO2').html(p.suppO2);
     $('#oralTemp').html(p.oralTemp);
+    $('#bmi').html(p.bmi);
   };
 
 })(window);
