@@ -18,7 +18,8 @@
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
-                             'http://loinc.org|88658-0', 'http://loinc.org|8331-1']
+                             'http://loinc.org|88658-0', 'http://loinc.org|8331-1',
+                             'http://loinc.org|39156-5']
                       }
                     }
                   });
@@ -63,7 +64,12 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.suppO2 = getQuantityValueAndUnit(suppO2[0]);
+          suppO2 = getQuantityValueAndUnit(suppO2[0]);
+          if (typeof suppO2 != 'undefined') {
+              p.suppO2 = suppO2
+          } else {
+            p.suppO2 = 'None'
+          }
           p.oralTemp = getQuantityValueAndUnit(oralTemp[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
 
