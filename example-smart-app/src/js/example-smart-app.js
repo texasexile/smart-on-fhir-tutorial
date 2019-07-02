@@ -19,7 +19,7 @@
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
                              'http://loinc.org|88658-0', 'http://loinc.org|8331-1',
-                             'http://loinc.org|39156-5']
+                             'http://loinc.org|39156-5', 'http://loinc.org|2710-2']
                       }
                     }
                   });
@@ -46,6 +46,7 @@
           var suppO2 = byCodes('88658-0');
           var oralTemp = byCodes('8331-1');
           var bmi = byCodes('39156-5');
+          var o2Sat = byCodes('2710-2')
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -72,6 +73,7 @@
           }
           p.oralTemp = getQuantityValueAndUnit(oralTemp[0]);
           p.bmi = getQuantityValueAndUnit(bmi[0]);
+          p.o2Sat = getQuantityValueAndUnit(o2Sat[0]);
 
           ret.resolve(p);
         });
@@ -98,7 +100,8 @@
       hdl: {value: ''},
       suppO2: {value: ''},
       oralTemp: {value: ''},
-      bmi: {value: ''}
+      bmi: {value: ''},
+      o2Sat: {value: ''}
     };
   }
 
@@ -145,6 +148,7 @@
     $('#suppO2').html(p.suppO2);
     $('#oralTemp').html(p.oralTemp);
     $('#bmi').html(p.bmi);
+    $('#o2Sat'.html(p.o2Sat))
   };
 
 })(window);
